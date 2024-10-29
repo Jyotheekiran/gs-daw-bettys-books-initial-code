@@ -24,7 +24,8 @@ const db = mysql.createConnection ({
     host: 'localhost',
     user: 'bettys_books_app',
     password: 'qwertyuiop',
-    database: 'bettys_books'
+    database: 'bettys_books',
+    port: 3305
 })
 // Connect to the database
 db.connect((err) => {
@@ -49,6 +50,9 @@ app.use('/users', usersRoutes)
 // Load the route handlers for /books
 const booksRoutes = require('./routes/books')
 app.use('/books', booksRoutes)
+
+// Load the route handlers for /weather
+app.use('/weather', require('./routes/weather'))
 
 // Start the web app listening
 app.listen(port, () => console.log(`Node app listening on port ${port}!`))

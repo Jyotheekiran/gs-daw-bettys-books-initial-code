@@ -7,10 +7,22 @@
   <body>
     <h1><%=shopData.shopName%> Shop</h1>
     <h2>Here are our bargain books:</h2>
-    <ul>
+     <!-- Create a table to display book details -->
+     <table border="1" cellpadding="10">
+      <thead>
+        <tr>
+          <th>Book Name</th>
+          <th>Price (£)</th>
+        </tr>
+      </thead>
+      <tbody>
       <% availableBooks.forEach(function(book) { %>
-        <li><%= book.name %>, £<%=book.price%> </li>
+        <tr>
+          <td><%= book.name %></td>
+          <td>£<%= book.price %></td>
+        </tr>
       <% }) %>
-    </ul>
+    </tbody>
+  </table>
     </body>
 </html>

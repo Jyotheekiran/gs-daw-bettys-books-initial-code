@@ -7,6 +7,7 @@ router.get('/search',function(req, res, next){
 
 router.get('/search_result', function (req, res, next) {
     // Search the database
+
     let sqlquery = "SELECT * FROM books WHERE name LIKE '%" + req.query.search_text + "%'" // query database to get all the books
     // execute sql query
     db.query(sqlquery, (err, result) => {
@@ -14,7 +15,7 @@ router.get('/search_result', function (req, res, next) {
             next(err)
         }
         res.render("list.ejs", {availableBooks:result})
-     }) 
+     })        
 })
 
 
@@ -25,13 +26,13 @@ router.get('/list', function(req, res, next) {
         if (err) {
             next(err)
         }
-        res.render("list.ejs", {availableBooks:result})
+            res.render("list.ejs", {availableBooks:result})
      })
 })
 
 router.get('/addbook', function (req, res, next) {
     res.render('addbook.ejs')
-})
+ })
 
 router.post('/bookadded', function (req, res, next) {
     // saving data in database
@@ -45,7 +46,7 @@ router.post('/bookadded', function (req, res, next) {
         else
             res.send(' This book is added to database, name: '+ req.body.name + ' price '+ req.body.price)
     })
-}) 
+})    
 
 router.get('/bargainbooks', function(req, res, next) {
     let sqlquery = "SELECT * FROM books WHERE price < 20"
@@ -55,7 +56,7 @@ router.get('/bargainbooks', function(req, res, next) {
         }
         res.render("bargains.ejs", {availableBooks:result})
     })
-}) 
+})   
 
 
 // Export the router object so index.js can access it

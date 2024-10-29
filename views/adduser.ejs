@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Add an User to <%=shopData.shopName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <h1><%=shopData.shopName%>: Add User</h1>
+    <form method="POST" action="users/useradded">
+        <p>User name: <input id="firstname" type="text" name="firstname" value="" /></p>
+        <p>User name: <input id="lastname" type="text" name="lastname" value="" /></p>
+
+        <p>User email: <input id="email" type="text" name="email" value="" /></p>
+        <p>Password: <input id="password" type="hidden" name="password" value="" /></p>
+
+        <input type="submit" value="Add User" />
+      </form>
+  </body>
+</html>
+
